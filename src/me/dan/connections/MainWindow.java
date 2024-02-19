@@ -9,6 +9,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JToggleButton;
 import javax.swing.JProgressBar;
@@ -18,6 +21,7 @@ public class MainWindow extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private ArrayList<JToggleButton> selected;
+	private String[] layout;
 
 	/**
 	 * Launch the application.
@@ -60,63 +64,77 @@ public class MainWindow extends JFrame {
 		JToggleButton tglbtnNewToggleButton_2 = new JToggleButton("New toggle button");
 		tglbtnNewToggleButton_2.setBounds(240, 74, 90, 90);
 		contentPane.add(tglbtnNewToggleButton_2);
+		buttons[2] = tglbtnNewToggleButton_2;
 		
 		JToggleButton tglbtnNewToggleButton_3 = new JToggleButton("New toggle button");
 		tglbtnNewToggleButton_3.setBounds(340, 74, 90, 90);
 		contentPane.add(tglbtnNewToggleButton_3);
+		buttons[3] = tglbtnNewToggleButton_3;
 		
 		JToggleButton tglbtnNewToggleButton_4 = new JToggleButton("New toggle button");
 		tglbtnNewToggleButton_4.setBounds(40, 175, 90, 90);
 		contentPane.add(tglbtnNewToggleButton_4);
+		buttons[4] = tglbtnNewToggleButton_4;
 		
 		JToggleButton tglbtnNewToggleButton_5 = new JToggleButton("New toggle button");
 		tglbtnNewToggleButton_5.setBounds(140, 175, 90, 90);
 		contentPane.add(tglbtnNewToggleButton_5);
+		buttons[5] = tglbtnNewToggleButton_5;
 		
 		JToggleButton tglbtnNewToggleButton_6 = new JToggleButton("New toggle button");
 		tglbtnNewToggleButton_6.setBounds(240, 175, 90, 90);
 		contentPane.add(tglbtnNewToggleButton_6);
+		buttons[6] = tglbtnNewToggleButton_6;
 		
 		JToggleButton tglbtnNewToggleButton_7 = new JToggleButton("New toggle button");
 		tglbtnNewToggleButton_7.setBounds(340, 175, 90, 90);
 		contentPane.add(tglbtnNewToggleButton_7);
+		buttons[7] = tglbtnNewToggleButton_7;
 		
 		JToggleButton tglbtnNewToggleButton_8 = new JToggleButton("New toggle button");
 		tglbtnNewToggleButton_8.setBounds(40, 276, 90, 90);
 		contentPane.add(tglbtnNewToggleButton_8);
+		buttons[8] = tglbtnNewToggleButton_8;
 		
 		JToggleButton tglbtnNewToggleButton_9 = new JToggleButton("New toggle button");
 		tglbtnNewToggleButton_9.setBounds(140, 276, 90, 90);
 		contentPane.add(tglbtnNewToggleButton_9);
+		buttons[9] = tglbtnNewToggleButton_9;
 		
 		JToggleButton tglbtnNewToggleButton_10 = new JToggleButton("New toggle button");
 		tglbtnNewToggleButton_10.setBounds(240, 276, 90, 90);
 		contentPane.add(tglbtnNewToggleButton_10);
+		buttons[10] = tglbtnNewToggleButton_10;
 		
 		JToggleButton tglbtnNewToggleButton_11 = new JToggleButton("New toggle button");
 		tglbtnNewToggleButton_11.setBounds(340, 276, 90, 90);
 		contentPane.add(tglbtnNewToggleButton_11);
+		buttons[11] = tglbtnNewToggleButton_11;
 		
 		JToggleButton tglbtnNewToggleButton_12 = new JToggleButton("New toggle button");
 		tglbtnNewToggleButton_12.setBounds(40, 377, 90, 90);
 		contentPane.add(tglbtnNewToggleButton_12);
+		buttons[12] = tglbtnNewToggleButton_12;
 		
 		JToggleButton tglbtnNewToggleButton_13 = new JToggleButton("New toggle button");
 		tglbtnNewToggleButton_13.setBounds(140, 377, 90, 90);
 		contentPane.add(tglbtnNewToggleButton_13);
+		buttons[13] = tglbtnNewToggleButton_13;
 		
 		JToggleButton tglbtnNewToggleButton_14 = new JToggleButton("New toggle button");
 		tglbtnNewToggleButton_14.setBounds(240, 377, 90, 90);
 		contentPane.add(tglbtnNewToggleButton_14);
+		buttons[14] = tglbtnNewToggleButton_14;
 		
 		JToggleButton tglbtnNewToggleButton_15 = new JToggleButton("New toggle button");
 		tglbtnNewToggleButton_15.setBounds(340, 377, 90, 90);
 		contentPane.add(tglbtnNewToggleButton_15);
+		buttons[15] = tglbtnNewToggleButton_15;
 		
 		for (JToggleButton j : buttons) {
 			j.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					updateSelected(tglbtnNewToggleButton, tglbtnNewToggleButton.isSelected());
+					updateSelected(j, j.isSelected());
 				}
 			});
 		}
@@ -138,25 +156,34 @@ public class MainWindow extends JFrame {
 		WordGroup wg3 = new WordGroup("turd", "turd", "turd", "turd");
 		WordGroup wg4 = new WordGroup("meatball", "meatball", "meatball", "meatball");
 
-		tglbtnNewToggleButton.setText(wg1.getWord1());
-		tglbtnNewToggleButton_1.setText(wg1.getWord2());
-		tglbtnNewToggleButton_2.setText(wg1.getWord3());
-		tglbtnNewToggleButton_3.setText(wg1.getWord4());
+		layout = new String[16];
+		layout[0] = wg1.getWord1();
+		layout[1] = wg1.getWord2();
+		layout[2] = wg1.getWord3();
+		layout[3] = wg1.getWord4();
 
-		tglbtnNewToggleButton_4.setText(wg2.getWord1());
-		tglbtnNewToggleButton_5.setText(wg2.getWord2());
-		tglbtnNewToggleButton_6.setText(wg2.getWord2());
-		tglbtnNewToggleButton_7.setText(wg2.getWord2());
+		layout[4] = wg2.getWord1();
+		layout[5] = wg2.getWord2();
+		layout[6] = wg2.getWord2();
+		layout[7] = wg2.getWord2();
 
-		tglbtnNewToggleButton_8.setText(wg3.getWord1());
-		tglbtnNewToggleButton_9.setText(wg3.getWord2());
-		tglbtnNewToggleButton_10.setText(wg3.getWord3());
-		tglbtnNewToggleButton_11.setText(wg3.getWord4());
+		layout[8] = wg3.getWord1();
+		layout[9] = wg3.getWord2();
+		layout[10] = wg3.getWord3();
+		layout[11] = wg3.getWord4();
 
-		tglbtnNewToggleButton_12.setText(wg4.getWord1());
-		tglbtnNewToggleButton_13.setText(wg4.getWord2());
-		tglbtnNewToggleButton_14.setText(wg4.getWord3());
-		tglbtnNewToggleButton_15.setText(wg4.getWord4());
+		layout[12] = wg4.getWord1();
+		layout[13] = wg4.getWord2();
+		layout[14] = wg4.getWord3();
+		layout[15] = wg4.getWord4();
+
+		List<String> toShuffle = Arrays.asList(layout);
+		Collections.shuffle(toShuffle);
+		toShuffle.toArray(layout);
+
+		for (int i = 0; i < 16; i++) {
+			buttons[i].setText(layout[i]);
+		}
 
 		selected = new ArrayList<JToggleButton>();
 		JButton btnSubmit = new JButton("Check");
@@ -176,6 +203,48 @@ public class MainWindow extends JFrame {
 				boolean isCorrect = inGroup1 ^ inGroup2 ^ inGroup3 ^ inGroup4;
 				if (isCorrect) {
 					JOptionPane.showMessageDialog(null, "Yay!");
+					String[] newLayout = new String[16];
+					if (inGroup1) {
+						newLayout[0] = wg1.getWord1();
+						newLayout[1] = wg1.getWord2();
+						newLayout[2] = wg1.getWord3();
+						newLayout[3] = wg1.getWord4();
+					}
+
+					// TODO: remaining groups!
+
+					var remaining = new ArrayList<String>();
+					for (String word : layout) {
+						if (!wg1.contains(word)) {
+							remaining.add(word);
+						}
+					}
+
+					Collections.shuffle(remaining);
+					for (int i = 0; i < remaining.size(); i++) {
+						newLayout[i+4] = remaining.get(i);
+					}
+
+					layout = newLayout;
+					for (int i = 0; i < 16; i++) {
+						buttons[i].setText(layout[i]);
+						buttons[i].setSelected(false);
+					}
+					/*
+					for (int i = 0; i < 4; i++) {
+						JToggleButton toMove = selected.get(i);
+						int positionInLayout = -1;
+						for (int j = 0; j < 16; j++) {
+							if (toMove.getText().equals(layout[j])) {
+								positionInLayout = j;
+								break;
+							}
+						}
+
+						if (positionInLayout > 3) {
+
+						}
+					}*/
 				} else {
 					JOptionPane.showMessageDialog(null, "boo...");
 				}
@@ -195,6 +264,6 @@ public class MainWindow extends JFrame {
 		} else {
 			selected.remove(j);
 		}
-		System.out.println(selected);
+		System.out.println(selected.size());
 	}
 }
